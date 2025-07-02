@@ -12,10 +12,13 @@ const user: User = {
     email: "matheus@gmail.com"
 }
 
-function getUser(id: ID) {
+function getUser(id: ID): User | string {
     if (id === user.id) {
         return user
+    } else {
+        return "Usuário não encontrado"
     }
 }
 
+console.log(getUser(1))
 console.log(getUser(2))
