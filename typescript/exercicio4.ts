@@ -4,10 +4,15 @@
 // barcode	string
 // price	number
 
+type Product = {
+    barcode: string;
+    price: number;
+}
+
 // 2 - Utilize Type Assertion na função getProducts para resolver os erros de compilação.Esteja consciente de que está fazendo em um momento inadequado, pois não tem a chave price.
 
-function getProduct() {
-    const product = {};
+function getProduct(): Product {
+    const product: Product = {} as Product;
     product.barcode = '123c456b789a'; // Error: Property 'barcode' does not exist on type '{}'.
     return product;
 }
