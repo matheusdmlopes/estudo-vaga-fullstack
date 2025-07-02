@@ -348,6 +348,8 @@ npx prisma init
 # TypeScript
 tsc --noEmit  # Check types
 npm run type-check
+npx tsc --init
+ts-node file.ts
 
 # Prisma
 npx prisma generate
