@@ -13,4 +13,4 @@ Preparação para entrevista técnica Full Stack Júnior.
 ## Stack
 TypeScript • Next.js • Prisma • PostgreSQL • GraphQL • Docker • GitHub Actions
 
-**Meta:** Conhecimento prático + teórico para entrevista. 
+**Meta:** Conhecimento prático + teórico. 
