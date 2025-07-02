@@ -15,90 +15,90 @@
 ### 🌅 Manhã (3h) - Teoria
 **Foco:** TypeScript avançado e Next.js
 
-#### TypeScript Review + Avançado (1h)
-- **Conceitos avançados:** Generics, Utility Types, Conditional Types
-- **Tipos práticos:** Pick, Omit, Partial, Record
-- **Inferência:** typeof, keyof, template literals
-- **Configuração:** tsconfig.json para projetos modernos
+#### TypeScript Essencial (1h)
+- **Review básico:** Tipos primitivos, interfaces, arrays
+- **Utility types simples:** Partial, Pick (só esses dois)
+- **Função tipada:** Parâmetros e retorno
+- **Configuração:** tsconfig.json básico
 
-#### Next.js com TypeScript (1h)
-- **Conceitos:** SSR vs CSR vs SSG
-- **Tipos específicos:** GetServerSideProps, GetStaticProps, NextApiRequest
-- **Routing:** File-based routing, dynamic routes tipados
-- **API Routes:** Endpoints type-safe
+#### Next.js Básico (1h)
+- **Diferença do React:** O que é SSR vs SPA
+- **Páginas:** Como criar páginas simples
+- **Roteamento:** Navegação entre páginas
+- **API Routes:** Conceito básico
 
-#### GraphQL + TypeScript (1h)
-- **Conceitos:** Query, Mutation, Subscription
-- **Schema:** Types, Resolvers tipados
-- **CodeGen:** Auto-geração de tipos
-- **Vantagens sobre REST:** Type safety end-to-end
+#### GraphQL Introdução (1h)
+- **O que é:** Query language para APIs
+- **Diferença do REST:** Um endpoint, buscar só o que precisa
+- **Schema básico:** Tipos e queries simples
+- **Playground:** Como testar queries
 
 ### 🌆 Tarde (4h) - Prática
-**Exercício 1:** CRUD Express + TypeScript (1h)
-```bash
-# Setup rápido
-mkdir ts-crud-practice && cd ts-crud-practice
-npm init -y
-npm install express cors
-npm install -D typescript @types/express @types/cors @types/node ts-node nodemon
-npx tsc --init
-```
-
+**Exercício 1:** TypeScript Básico (1h)
 ```typescript
-// Objetivos do exercício:
-// 1. Tipos para entidades (User, Product)
-// 2. Interfaces para Request/Response
-// 3. Utility types (Pick, Omit, Partial)
-// 4. Generics para funções de CRUD
-// 5. Middleware tipado
-// 6. Error handling tipado
+// Exercício simples para relembrar TypeScript:
 
-// Implementar:
-// GET    /api/users      - Listar usuários
-// GET    /api/users/:id  - Buscar por ID
-// POST   /api/users      - Criar usuário
-// PUT    /api/users/:id  - Atualizar usuário
-// DELETE /api/users/:id  - Deletar usuário
+// 1. Tipos básicos (15min)
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+// 2. Função tipada (15min)
+function getUser(id: number): User | null {
+  // implementar busca simples
+}
+
+// 3. Utility type simples (15min)
+type CreateUser = Pick<User, 'name' | 'email'>; // Só nome e email
+type UpdateUser = Partial<User>; // Todos opcionais
+
+// 4. Array tipado (15min)
+const users: User[] = [];
+function addUser(user: CreateUser): User {
+  // implementar
+}
 ```
 
-**Exercício 2:** Next.js + TypeScript (1.5h)
+**Exercício 2:** Next.js Simples (1.5h)
 ```bash
-npx create-next-app@latest blog-app --typescript --tailwind
+npx create-next-app@latest meu-app --typescript
 ```
-- Página home com SSG tipada
-- Página de posts com SSR + tipos corretos
-- API route type-safe
-- Props e componentes tipados
+- Criar página "About" simples
+- Navegar entre Home e About
+- Criar uma API route que retorna JSON
+- Entender estrutura de pastas
 
-**Exercício 3:** GraphQL Schema + Types (1.5h)
-- Apollo Server com TypeScript
-- Schema com tipos bem definidos
-- Resolvers tipados
-- Testar no playground
-- Setup básico do GraphQL CodeGen
+**Exercício 3:** GraphQL Playground (1.5h)
+- Instalar Apollo Server simples
+- Criar schema básico (só User)
+- 1 query: buscar usuários
+- 1 mutation: criar usuário
+- Testar no GraphQL Playground
 
 ### 🌙 Noite (1h) - Revisão
-- Utility types mais úteis (Pick, Omit, Partial)
-- Tipos específicos do Next.js
-- Como GraphQL + TypeScript = type safety completa
+- O que é TypeScript e por que usar
+- Next.js vs React: principais diferenças
+- GraphQL vs REST: conceito básico
 
 ---
 
 ## 📅 DIA 2 - Back-end com Prisma e Postgres
 
 ### 🌅 Manhã (3h) - Teoria
-**Foco:** Prisma ORM e PostgreSQL
+**Foco:** Prisma básico e PostgreSQL
 
-#### Prisma + TypeScript (2h)
-- **Conceitos:** ORM type-safe, Schema, Migrations
-- **Prisma Client:** Queries totalmente tipadas
-- **Types:** Auto-geração de tipos TypeScript
-- **Prisma Studio:** Interface visual + intellisense
+#### Prisma Introdução (2h)
+- **O que é:** ORM moderno, substitui SQL
+- **Schema:** Como definir tabelas em arquivo
+- **Prisma Client:** Como fazer queries
+- **Vantagens:** Tipos automáticos, fácil de usar
 
-#### PostgreSQL (1h)
-- **Diferenças do MySQL:** Tipos de dados, comandos
-- **Relacionamentos:** Foreign keys, joins
-- **Performance:** Indexes, query optimization
+#### PostgreSQL Básico (1h)
+- **O que é:** Banco de dados relacional
+- **Diferenças do MySQL:** Conceito geral
+- **Docker:** Como rodar Postgres local
 
 ### 🌆 Tarde (4h) - Prática
 **Exercício 1:** Setup do ambiente
@@ -112,16 +112,17 @@ npm install prisma @prisma/client
 npx prisma init
 ```
 
-**Exercício 2:** Modelagem de dados
-- Criar schema Prisma (User, Post, Category)
-- Definir relacionamentos (1:N, N:N)
-- Gerar e executar migration
-- Explorar dados no Prisma Studio
+**Exercício 2:** Schema Simples (1.5h)
+- Criar modelo User básico (id, name, email)
+- Rodar primeira migration
+- Ver no Prisma Studio
+- Entender como funciona
 
-**Exercício 3:** CRUD completo
-- Implementar todas operações básicas
-- Queries com filtros e relações
-- Transações simples
+**Exercício 3:** CRUD Básico (1.5h)
+- Create: Criar usuário
+- Read: Buscar todos os usuários
+- Update: Atualizar um usuário
+- Delete: Deletar usuário
 
 ### 🌙 Noite (1h) - Revisão
 - Comparar Prisma com ORMs tradicionais
@@ -133,36 +134,35 @@ npx prisma init
 ## 📅 DIA 3 - GraphQL + Prisma Integration
 
 ### 🌅 Manhã (3h) - Teoria
-**Foco:** Integração GraphQL com banco de dados
+**Foco:** Conectar GraphQL com Prisma
 
-#### GraphQL + Prisma + TypeScript (2h)
-- **Type Safety End-to-End:** DB → GraphQL → Frontend
-- **Resolvers:** Conectar schema tipado com Prisma Client
-- **CodeGen:** Tipos automáticos para queries e mutations
-- **Validação:** Input types, custom scalars
+#### GraphQL + Prisma (2h)
+- **Resolvers:** Como conectar GraphQL com banco
+- **Queries:** Buscar dados do Prisma
+- **Mutations:** Criar/editar dados via GraphQL
+- **Integração:** Apollo Server + Prisma Client
 
 #### BFF Conceito (1h)
-- **O que é:** Backend for Frontend
-- **Quando usar:** Casos práticos
-- **GraphQL como BFF:** Vantagens reais
+- **O que é:** API específica para o frontend
+- **Por que usar:** Otimizar dados para cada tela
+- **Exemplo prático:** Quando é útil
 
 ### 🌆 Tarde (4h) - Prática
-**Exercício 1:** GraphQL Server com Prisma (2h)
-- Apollo Server + Prisma setup
-- Schema básico (User, Post)
-- Resolvers para CRUD
-- Testar no GraphQL Playground
+**Exercício 1:** Conectar GraphQL + Prisma (2h)
+- Apollo Server + Prisma juntos
+- Resolver para buscar usuários do banco
+- Mutation para criar usuário no banco
+- Testar tudo no Playground
 
-**Exercício 2:** Mutations avançadas (1h)
-- CreatePost com relacionamento
-- UpdatePost com validações
-- DeletePost com verificações
+**Exercício 2:** Queries Funcionando (1h)
+- Query que busca usuários do Prisma
+- Mutation que cria usuário no Prisma
+- Verificar que dados estão sendo salvos
 
-**Exercício 3:** Next.js Client (1h)
-- Apollo Client setup
-- Consumir queries no componente
-- Formulário com mutation
-- Loading e error states
+**Exercício 3:** Next.js Consumindo API (1h)
+- Criar página que chama a API GraphQL
+- Mostrar lista de usuários
+- Formulário para criar usuário
 
 ### 🌙 Noite (1h) - Revisão
 - Fluxo completo: Next.js → GraphQL → Prisma → PostgreSQL
@@ -175,16 +175,16 @@ npx prisma init
 ### 🌅 Manhã (3h) - Teoria
 **Foco:** Containerização e deploy
 
-#### Docker (2h)
-- **Conceitos:** Container vs VM, imagens
-- **Dockerfile:** Multi-stage builds
-- **Docker Compose:** Múltiplos serviços
-- **Produção:** Otimizações básicas
+#### Docker Básico (2h)
+- **O que é:** Containers, por que usar
+- **Docker vs VM:** Conceito geral
+- **Dockerfile:** Como criar uma imagem
+- **Docker Compose:** Rodar múltiplos containers
 
-#### CI/CD Essencial (1h)
-- **GitHub Actions:** Conceito e estrutura
-- **Pipeline simples:** Build e test
-- **Environment variables:** Configuração
+#### CI/CD Conceito (1h)
+- **O que é:** Integração e deploy contínuo
+- **GitHub Actions:** Automação básica
+- **Pipeline:** Build automático quando faz push
 
 ### 🌆 Tarde (4h) - Prática
 **Exercício 1:** Dockerizar aplicação (2h)
@@ -213,16 +213,15 @@ npx prisma init
 
 ## 📅 DIA 5 - Projeto Integrado e Review
 
-### 🌅 Manhã (3h) - Projeto Mini Blog
-**Objetivo:** Integrar tudo que aprendeu em um projeto simples
+### 🌅 Manhã (3h) - Projeto Simples
+**Objetivo:** Juntar tudo que aprendeu
 
-**Funcionalidades mínimas:**
-- Listar posts (SSG)
-- Ver detalhes do post (SSR)
-- Criar novo post via API
-- GraphQL + Prisma + PostgreSQL
+**Funcionalidades SUPER simples:**
+- Página que lista usuários (vem do banco)
+- Formulário para adicionar usuário
+- GraphQL + Prisma + PostgreSQL funcionando
 
-**Foco:** Fazer funcionar, não perfeito
+**Foco:** Fazer funcionar, mesmo que simples
 
 ### 🌆 Tarde (4h) - Implementação Sprint
 **Timebox rigoroso:**
@@ -258,12 +257,12 @@ npx prisma init
 - [ ] Anotações e dúvidas documentadas
 - [ ] Próximo dia planejado
 
-### 🎯 Meta Final (Realista):
-- [ ] Projeto simples funcionando (Next.js + GraphQL + Prisma + PostgreSQL)
-- [ ] Entender conceitos-chave: SSR/SSG, BFF, Docker
-- [ ] Saber explicar vantagens de cada tecnologia
-- [ ] Conseguir implementar CRUD básico em GraphQL
-- [ ] Confiança nas tecnologias que você já domina (React, TypeScript, Node.js)
+### 🎯 Meta Final (Realista para Júnior):
+- [ ] Conseguir explicar o que é cada tecnologia
+- [ ] Demonstrar 1 projeto simples funcionando
+- [ ] Entender quando usar Next.js vs React
+- [ ] Saber por que GraphQL é útil
+- [ ] Mostrar que consegue aprender tecnologias novas
 
 ---
 
