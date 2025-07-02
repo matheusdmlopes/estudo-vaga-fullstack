@@ -10,16 +10,134 @@
 
 ---
 
-## 📅 DIA 1 - TypeScript + Next.js + GraphQL Básico
+## 📅 DIA 1 - Revisão Completa de TypeScript
+
+### 🌅 Manhã (3h) - Teoria e Fundamentos
+**Foco:** Revisão sólida dos conceitos TypeScript
+
+#### Fundamentos TypeScript (1h)
+- **Tipos básicos:** string, number, boolean, any, unknown, void
+- **Arrays e objetos:** Tipagem de estruturas de dados
+- **Union types:** string | number, optional properties
+- **Type assertions:** as syntax, type guards
+
+#### Interfaces e Types (1h)
+- **Interfaces:** Definindo contratos de objetos
+- **Types vs Interfaces:** Quando usar cada um
+- **Extending interfaces:** Herança e composição
+- **Index signatures:** Objetos dinâmicos
+
+#### Funções e Classes (1h)
+- **Funções tipadas:** Parâmetros, retorno, overloads
+- **Arrow functions:** Tipagem em funções anônimas
+- **Classes:** Properties, methods, constructors
+- **Access modifiers:** public, private, protected
+
+### 🌆 Tarde (4h) - Exercícios Práticos
+**Exercício 1:** Tipos e Interfaces (1h)
+```typescript
+// 1. Tipos básicos e union types (20min)
+type Status = 'pending' | 'approved' | 'rejected';
+type ID = number | string;
+
+interface User {
+  id: ID;
+  name: string;
+  email: string;
+  status: Status;
+  createdAt?: Date; // opcional
+}
+
+// 2. Funções tipadas (20min)
+function createUser(name: string, email: string): User {
+  // implementar
+}
+
+function updateUser(id: ID, updates: Partial<User>): User | null {
+  // implementar com Partial
+}
+
+// 3. Arrays e objetos (20min)
+const users: User[] = [];
+const userMap: Record<string, User> = {}; // Index signature
+```
+
+**Exercício 2:** Utility Types e Generics (1.5h)
+```typescript
+// 1. Utility Types essenciais (30min)
+type CreateUserInput = Pick<User, 'name' | 'email'>;
+type UpdateUserInput = Partial<User>;
+type UserResponse = Omit<User, 'password'>;
+
+// 2. Generics básicos (30min)
+interface ApiResponse<T> {
+  data: T;
+  success: boolean;
+  message: string;
+}
+
+function fetchData<T>(url: string): Promise<ApiResponse<T>> {
+  // implementar fetch genérico
+}
+
+// 3. Classes tipadas (30min)
+class UserService {
+  private users: User[] = [];
+  
+  create(input: CreateUserInput): User {
+    // implementar
+  }
+  
+  findById(id: ID): User | undefined {
+    // implementar
+  }
+}
+```
+
+**Exercício 3:** Projeto Prático - Sistema de Usuários (1.5h)
+```typescript
+// Criar um sistema simples de CRUD de usuários
+// Arquivos: types.ts, user-service.ts, main.ts
+// 
+// Features:
+// - Criar usuário
+// - Listar usuários  
+// - Buscar por ID
+// - Atualizar usuário
+// - Validação de tipos
+// - Error handling tipado
+```
+
+### 🌙 Noite (1h) - Revisão e Checklist TypeScript
+**Pontos principais para revisar:**
+
+#### Conceitos Fundamentais (20min)
+- **Por que TypeScript?** Vantagens sobre JavaScript puro
+- **Tipos básicos:** Diferença entre any, unknown, never
+- **Type inference:** Quando TypeScript deduz tipos automaticamente
+- **Strict mode:** O que muda com strict: true
+
+#### Checklist de Conhecimento (30min)
+- [ ] Sei criar interfaces e types
+- [ ] Entendo union types (string | number)
+- [ ] Consigo usar Partial, Pick, Omit
+- [ ] Sei tipar funções com parâmetros e retorno
+- [ ] Entendo a diferença entre type e interface
+- [ ] Consigo criar classes tipadas
+- [ ] Sei usar generics básicos
+- [ ] Entendo optional properties (?)
+
+#### Preparação para Amanhã (10min)
+- **Next.js:** Como TypeScript se integra com React
+- **Prisma:** Como ORMs geram tipos automaticamente
+- **GraphQL:** Como CodeGen cria tipos das queries
+
+---
+
+## 📅 DIA 2 - Next.js + Prisma + PostgreSQL
 
 ### 🌅 Manhã (3h) - Teoria
-**Foco:** TypeScript avançado e Next.js
-
-#### TypeScript Essencial (1h)
-- **Review básico:** Tipos primitivos, interfaces, arrays
-- **Utility types simples:** Partial, Pick (só esses dois)
-- **Função tipada:** Parâmetros e retorno
-- **Configuração:** tsconfig.json básico
+**Foco:** Next.js + Prisma + PostgreSQL
 
 #### Next.js Básico (1h)
 - **Diferença do React:** O que é SSR vs SPA
@@ -27,77 +145,14 @@
 - **Roteamento:** Navegação entre páginas
 - **API Routes:** Conceito básico
 
-#### GraphQL Introdução (1h)
-- **O que é:** Query language para APIs
-- **Diferença do REST:** Um endpoint, buscar só o que precisa
-- **Schema básico:** Tipos e queries simples
-- **Playground:** Como testar queries
-
-### 🌆 Tarde (4h) - Prática
-**Exercício 1:** TypeScript Básico (1h)
-```typescript
-// Exercício simples para relembrar TypeScript:
-
-// 1. Tipos básicos (15min)
-interface User {
-  id: number;
-  name: string;
-  email: string;
-}
-
-// 2. Função tipada (15min)
-function getUser(id: number): User | null {
-  // implementar busca simples
-}
-
-// 3. Utility type simples (15min)
-type CreateUser = Pick<User, 'name' | 'email'>; // Só nome e email
-type UpdateUser = Partial<User>; // Todos opcionais
-
-// 4. Array tipado (15min)
-const users: User[] = [];
-function addUser(user: CreateUser): User {
-  // implementar
-}
-```
-
-**Exercício 2:** Next.js Simples (1.5h)
-```bash
-npx create-next-app@latest meu-app --typescript
-```
-- Criar página "About" simples
-- Navegar entre Home e About
-- Criar uma API route que retorna JSON
-- Entender estrutura de pastas
-
-**Exercício 3:** GraphQL Playground (1.5h)
-- Instalar Apollo Server simples
-- Criar schema básico (só User)
-- 1 query: buscar usuários
-- 1 mutation: criar usuário
-- Testar no GraphQL Playground
-
-### 🌙 Noite (1h) - Revisão
-- O que é TypeScript e por que usar
-- Next.js vs React: principais diferenças
-- GraphQL vs REST: conceito básico
-
----
-
-## 📅 DIA 2 - Back-end com Prisma e Postgres
-
-### 🌅 Manhã (3h) - Teoria
-**Foco:** Prisma básico e PostgreSQL
-
-#### Prisma Introdução (2h)
+#### Prisma Introdução (1.5h)
 - **O que é:** ORM moderno, substitui SQL
 - **Schema:** Como definir tabelas em arquivo
 - **Prisma Client:** Como fazer queries
 - **Vantagens:** Tipos automáticos, fácil de usar
 
-#### PostgreSQL Básico (1h)
+#### PostgreSQL Básico (30min)
 - **O que é:** Banco de dados relacional
-- **Diferenças do MySQL:** Conceito geral
 - **Docker:** Como rodar Postgres local
 
 ### 🌆 Tarde (4h) - Prática
@@ -134,18 +189,23 @@ npx prisma init
 ## 📅 DIA 3 - GraphQL + Prisma Integration
 
 ### 🌅 Manhã (3h) - Teoria
-**Foco:** Conectar GraphQL com Prisma
+**Foco:** GraphQL Introdução + Integração com Prisma
 
-#### GraphQL + Prisma (2h)
+#### GraphQL Básico (1h)
+- **O que é:** Query language para APIs
+- **Diferença do REST:** Um endpoint, buscar só o que precisa
+- **Schema básico:** Tipos e queries simples
+- **Playground:** Como testar queries
+
+#### GraphQL + Prisma (1.5h)
 - **Resolvers:** Como conectar GraphQL com banco
 - **Queries:** Buscar dados do Prisma
 - **Mutations:** Criar/editar dados via GraphQL
 - **Integração:** Apollo Server + Prisma Client
 
-#### BFF Conceito (1h)
+#### BFF Conceito (30min)
 - **O que é:** API específica para o frontend
 - **Por que usar:** Otimizar dados para cada tela
-- **Exemplo prático:** Quando é útil
 
 ### 🌆 Tarde (4h) - Prática
 **Exercício 1:** Conectar GraphQL + Prisma (2h)
@@ -268,24 +328,35 @@ npx prisma init
 
 ## 📚 Documentações por Dia
 
-### 📅 DIA 1 - TypeScript + Next.js + GraphQL
-**TypeScript:**
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/) - Documentação oficial
-- [TypeScript Cheat Sheet](https://www.typescriptlang.org/cheatsheets) - Resumo rápido
-- [Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html) - Pick, Partial, etc.
+### 📅 DIA 1 - Revisão Completa de TypeScript
+**Documentação Oficial:**
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/) - Documentação completa
+- [TypeScript in 5 minutes](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html) - Quick start
+- [Basic Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html) - Tipos fundamentais
+- [Interfaces](https://www.typescriptlang.org/docs/handbook/2/objects.html) - Tipagem de objetos
 
+**Utility Types (ESSENCIAL):**
+- [Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html) - Pick, Partial, Omit, etc.
+- [Mapped Types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html) - Tipos derivados
+- [Conditional Types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html) - Lógica em tipos
+
+**Recursos Práticos:**
+- [TypeScript Playground](https://www.typescriptlang.org/play) - Teste código online
+- [TypeScript Deep Dive](https://basarat.gitbook.io/typescript/) - Livro gratuito
+- [TypeScript Exercises](https://typescript-exercises.github.io/) - Exercícios progressivos
+- [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) - Tipos para libs JS
+
+**Cheat Sheets e Referências:**
+- [TypeScript Cheat Sheet](https://www.typescriptlang.org/cheatsheets) - Resumo oficial
+- [React TypeScript Cheatsheet](https://github.com/typescript-cheatsheets/react) - TS + React
+
+### 📅 DIA 2 - Next.js + Prisma + PostgreSQL
 **Next.js:**
 - [Next.js Documentation](https://nextjs.org/docs) - Documentação completa
 - [Getting Started](https://nextjs.org/docs/getting-started) - Tutorial inicial
 - [Pages and Routing](https://nextjs.org/docs/basic-features/pages) - Sistema de páginas
 - [API Routes](https://nextjs.org/docs/api-routes/introduction) - Criar APIs
 
-**GraphQL:**
-- [GraphQL Introduction](https://graphql.org/learn/) - Aprenda GraphQL
-- [GraphQL Queries](https://graphql.org/learn/queries/) - Como fazer queries
-- [Apollo Server Docs](https://www.apollographql.com/docs/apollo-server/) - Servidor GraphQL
-
-### 📅 DIA 2 - Prisma + PostgreSQL
 **Prisma:**
 - [Prisma Documentation](https://www.prisma.io/docs) - Documentação completa
 - [Getting Started](https://www.prisma.io/docs/getting-started) - Primeiros passos
@@ -296,7 +367,12 @@ npx prisma init
 - [PostgreSQL Tutorial](https://www.postgresql.org/docs/current/tutorial.html) - Tutorial oficial
 - [Docker PostgreSQL](https://hub.docker.com/_/postgres) - Imagem oficial Docker
 
-### 📅 DIA 3 - GraphQL + Prisma Integration
+### 📅 DIA 3 - GraphQL Introdução + Prisma Integration
+**GraphQL Básico:**
+- [GraphQL Introduction](https://graphql.org/learn/) - Aprenda GraphQL
+- [GraphQL Queries](https://graphql.org/learn/queries/) - Como fazer queries
+- [Apollo Server Docs](https://www.apollographql.com/docs/apollo-server/) - Servidor GraphQL
+
 **Apollo Server + Prisma:**
 - [Apollo Server with Prisma](https://www.apollographql.com/docs/apollo-server/data/resolvers/) - Resolvers
 - [Prisma GraphQL](https://www.prisma.io/docs/concepts/overview/prisma-in-your-stack/graphql) - Integração
@@ -344,13 +420,28 @@ npx prisma init
 - [pgAdmin](https://www.pgadmin.org/) - Administração PostgreSQL
 
 ### Comandos Essenciais:
-```bash
-# TypeScript
-tsc --noEmit  # Check types
-npm run type-check
-npx tsc --init
-ts-node file.ts
 
+#### TypeScript (DIA 1):
+```bash
+# Setup inicial
+npx tsc --init                    # Criar tsconfig.json
+npm install -D typescript ts-node @types/node
+
+# Executar código
+ts-node arquivo.ts               # Executar diretamente
+tsc arquivo.ts && node arquivo.js # Compilar + executar
+
+# Verificação de tipos
+tsc --noEmit                     # Só verificar tipos
+tsc --watch                      # Watch mode
+
+# Utilitários
+tsc --showConfig                 # Ver configuração
+tsc --listFiles                  # Ver arquivos incluídos
+```
+
+#### Outros Dias:
+```bash
 # Prisma
 npx prisma generate
 npx prisma db push
@@ -373,7 +464,7 @@ docker logs container-name
 ## 💡 Dicas para Sucesso
 
 ### 🚨 Prioridades se o tempo ficar apertado:
-1. **DIA 1:** Next.js essencial (SSR/SSG + rotas)
+1. **DIA 1:** TypeScript sólido (interfaces, utility types, generics básicos)
 2. **DIA 2:** Prisma + CRUD básico (core da vaga)
 3. **DIA 3:** GraphQL básico funcionando
 4. **DIAS 4-5:** Integração simples + Docker conceitual
