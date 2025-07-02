@@ -266,19 +266,82 @@ npx prisma init
 
 ---
 
-## 🔗 Recursos Importantes
+## 📚 Documentações por Dia
 
-### Documentações:
-- [Next.js Docs](https://nextjs.org/docs)
-- [GraphQL Learn](https://graphql.org/learn/)
-- [Prisma Docs](https://www.prisma.io/docs)
-- [PostgreSQL Tutorial](https://www.postgresql.org/docs/)
+### 📅 DIA 1 - TypeScript + Next.js + GraphQL
+**TypeScript:**
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/) - Documentação oficial
+- [TypeScript Cheat Sheet](https://www.typescriptlang.org/cheatsheets) - Resumo rápido
+- [Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html) - Pick, Partial, etc.
 
-### Ferramentas:
-- Docker Desktop
-- PostgreSQL Client (DBeaver)
-- Insomnia/Postman (GraphQL)
-- VS Code + extensões
+**Next.js:**
+- [Next.js Documentation](https://nextjs.org/docs) - Documentação completa
+- [Getting Started](https://nextjs.org/docs/getting-started) - Tutorial inicial
+- [Pages and Routing](https://nextjs.org/docs/basic-features/pages) - Sistema de páginas
+- [API Routes](https://nextjs.org/docs/api-routes/introduction) - Criar APIs
+
+**GraphQL:**
+- [GraphQL Introduction](https://graphql.org/learn/) - Aprenda GraphQL
+- [GraphQL Queries](https://graphql.org/learn/queries/) - Como fazer queries
+- [Apollo Server Docs](https://www.apollographql.com/docs/apollo-server/) - Servidor GraphQL
+
+### 📅 DIA 2 - Prisma + PostgreSQL
+**Prisma:**
+- [Prisma Documentation](https://www.prisma.io/docs) - Documentação completa
+- [Getting Started](https://www.prisma.io/docs/getting-started) - Primeiros passos
+- [Prisma Schema](https://www.prisma.io/docs/concepts/components/prisma-schema) - Como definir modelos
+- [Prisma Client](https://www.prisma.io/docs/concepts/components/prisma-client) - Como fazer queries
+
+**PostgreSQL:**
+- [PostgreSQL Tutorial](https://www.postgresql.org/docs/current/tutorial.html) - Tutorial oficial
+- [Docker PostgreSQL](https://hub.docker.com/_/postgres) - Imagem oficial Docker
+
+### 📅 DIA 3 - GraphQL + Prisma Integration
+**Apollo Server + Prisma:**
+- [Apollo Server with Prisma](https://www.apollographql.com/docs/apollo-server/data/resolvers/) - Resolvers
+- [Prisma GraphQL](https://www.prisma.io/docs/concepts/overview/prisma-in-your-stack/graphql) - Integração
+
+**Apollo Client (Next.js):**
+- [Apollo Client Docs](https://www.apollographql.com/docs/react/) - Cliente React
+- [Next.js with Apollo](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props#using-apollo-client) - Integração
+
+### 📅 DIA 4 - Docker + CI/CD
+**Docker:**
+- [Docker Get Started](https://docs.docker.com/get-started/) - Tutorial oficial
+- [Dockerfile Reference](https://docs.docker.com/engine/reference/builder/) - Como criar Dockerfile
+- [Docker Compose](https://docs.docker.com/compose/) - Múltiplos containers
+
+**GitHub Actions:**
+- [GitHub Actions Docs](https://docs.github.com/en/actions) - Documentação completa
+- [Workflow Syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions) - Como escrever workflows
+
+### 📅 DIA 5 - Projeto Integrado
+**Referências Gerais:**
+- [Full Stack TypeScript](https://www.typescriptlang.org/docs/handbook/react.html) - TS + React
+- [Next.js Examples](https://github.com/vercel/next.js/tree/canary/examples) - Projetos exemplo
+
+## 🛠️ Ferramentas e Extensões
+
+### Essenciais:
+- [VS Code](https://code.visualstudio.com/) - Editor recomendado
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) - Para containers
+- [Node.js](https://nodejs.org/) - Runtime JavaScript
+
+### VS Code Extensions:
+- [TypeScript Hero](https://marketplace.visualstudio.com/items?itemName=rbbit.typescript-hero)
+- [Prisma](https://marketplace.visualstudio.com/items?itemName=Prisma.prisma)
+- [GraphQL](https://marketplace.visualstudio.com/items?itemName=GraphQL.vscode-graphql)
+- [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+
+### Clientes de API:
+- [GraphQL Playground](https://github.com/graphql/graphql-playground) - Testar GraphQL
+- [Insomnia](https://insomnia.rest/) - Cliente REST/GraphQL
+- [Postman](https://www.postman.com/) - Alternativa popular
+
+### Banco de Dados:
+- [Prisma Studio](https://www.prisma.io/studio) - Interface visual (vem com Prisma)
+- [DBeaver](https://dbeaver.io/) - Cliente PostgreSQL
+- [pgAdmin](https://www.pgadmin.org/) - Administração PostgreSQL
 
 ### Comandos Essenciais:
 ```bash
