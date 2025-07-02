@@ -1,7 +1,6 @@
-
 // Faça a função addProducts se tornar genérica para funcionar com quaisquer tipos de listas de produtos, não só listas de strings.
 
-function addProducts(products: string[], newProduct: string): string[] {
+function addProducts<Type>(products: Type[], newProduct: Type): Type[] {
     return [...products, newProduct];
 }
 
@@ -32,8 +31,8 @@ const newFlour: Flour = {
     gluten: true,
 };
 
-const bread = addProducts(breads, newBread); // Error: Argument of type 'Bread[]' is not assignable to parameter of type 'string[]'.
-const flour = addProducts(flours, newFlour); // Error: Argument of type 'Flour[]' is not assignable to parameter of type 'string[]'.
+const bread = addProducts<Bread>(breads, newBread); // Error: Argument of type 'Bread[]' is not assignable to parameter of type 'string[]'.
+const flour = addProducts<Flour>(flours, newFlour); // Error: Argument of type 'Flour[]' is not assignable to parameter of type 'string[]'.
 
 console.log('bread', bread);
 console.log('flour', flour);
