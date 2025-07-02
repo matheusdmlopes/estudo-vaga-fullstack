@@ -34,78 +34,9 @@
 - **Access modifiers:** public, private, protected
 
 ### 🌆 Tarde (4h) - Exercícios Práticos
-**Exercício 1:** Tipos e Interfaces (1h)
-```typescript
-// 1. Tipos básicos e union types (20min)
-type Status = 'pending' | 'approved' | 'rejected';
-type ID = number | string;
 
-interface User {
-  id: ID;
-  name: string;
-  email: string;
-  status: Status;
-  createdAt?: Date; // opcional
-}
+Exercícios de fixação da Trybe
 
-// 2. Funções tipadas (20min)
-function createUser(name: string, email: string): User {
-  // implementar
-}
-
-function updateUser(id: ID, updates: Partial<User>): User | null {
-  // implementar com Partial
-}
-
-// 3. Arrays e objetos (20min)
-const users: User[] = [];
-const userMap: Record<string, User> = {}; // Index signature
-```
-
-**Exercício 2:** Utility Types e Generics (1.5h)
-```typescript
-// 1. Utility Types essenciais (30min)
-type CreateUserInput = Pick<User, 'name' | 'email'>;
-type UpdateUserInput = Partial<User>;
-type UserResponse = Omit<User, 'password'>;
-
-// 2. Generics básicos (30min)
-interface ApiResponse<T> {
-  data: T;
-  success: boolean;
-  message: string;
-}
-
-function fetchData<T>(url: string): Promise<ApiResponse<T>> {
-  // implementar fetch genérico
-}
-
-// 3. Classes tipadas (30min)
-class UserService {
-  private users: User[] = [];
-  
-  create(input: CreateUserInput): User {
-    // implementar
-  }
-  
-  findById(id: ID): User | undefined {
-    // implementar
-  }
-}
-```
-
-**Exercício 3:** Projeto Prático - Sistema de Usuários (1.5h)
-```typescript
-// Criar um sistema simples de CRUD de usuários
-// Arquivos: types.ts, user-service.ts, main.ts
-// 
-// Features:
-// - Criar usuário
-// - Listar usuários  
-// - Buscar por ID
-// - Atualizar usuário
-// - Validação de tipos
-// - Error handling tipado
 ```
 
 ### 🌙 Noite (1h) - Revisão e Checklist TypeScript
