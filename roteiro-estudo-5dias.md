@@ -37,8 +37,6 @@
 
 Exercícios de fixação da Trybe
 
-```
-
 ### 🌙 Noite (1h) - Revisão e Checklist TypeScript
 **Pontos principais para revisar:**
 
